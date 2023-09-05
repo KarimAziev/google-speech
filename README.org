@@ -1,0 +1,57 @@
+#+OPTIONS: ^:nil tags:nil
+
+* About
+
+Read text using Google Translate TTS API.
+
+* Table of Contents                                       :TOC_2_gh:QUOTE:
+#+BEGIN_QUOTE
+- [[#about][About]]
+- [[#requirements][Requirements]]
+- [[#installation][Installation]]
+  - [[#with-use-package-and-straightel][With use-package and straight.el]]
+  - [[#manual-installation][Manual installation]]
+- [[#usage][Usage]]
+  - [[#commands][Commands]]
+#+END_QUOTE
+
+* Requirements
+- Emacs >= 24.1
+- [[https://pypi.org/project/google-speech/][google_speech]]
+- [[https://sox.sourceforge.net/][SOX]]
+
+* Installation
+
+Ensure that you have insalled [[https://pypi.org/project/google-speech/][google_speech]] and [[https://sox.sourceforge.net/][SOX]].
+
+** With use-package and straight.el
+#+begin_src elisp :eval no
+(use-package google-speech
+  :straight (google-speech
+             :repo "KarimAziev/google-speech"
+             :type git
+             :host github)
+  :commands (google-speech))
+#+end_src
+
+** Manual installation
+
+Download the source code and put it wherever you like, e.g. into =~/.emacs.d/google-speech/=
+
+#+begin_src shell :eval no
+git clone https://github.com/KarimAziev/google-speech.git ~/.emacs.d/google-speech/
+#+end_src
+
+Add the downloaded directory to the load path:
+
+#+begin_src elisp :eval no
+(add-to-list 'load-path "~/.emacs.d/google-speech/")
+(require 'google-speech)
+#+end_src
+
+* Usage
+
+** Commands
+
+**** ~google-speech~
+Convert selected text to speech using Google's =Text-to-Speech= service
