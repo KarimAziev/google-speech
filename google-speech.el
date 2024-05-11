@@ -34,7 +34,7 @@
 
 ;;;###autoload
 (defun google-speech ()
-  "Convert selected text to speech using Google's `Text-to-Speech' service"
+  "Toggle Google speech process with current buffer or selection text."
   (interactive)
   (if (get-process google-speech-proc-name)
       (kill-process (get-process google-speech-proc-name))
